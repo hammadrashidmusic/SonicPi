@@ -1,0 +1,125 @@
+#PURPLE BREAD by Hammad Rashid
+
+use_bpm 80
+
+
+in_thread do
+  
+  use_synth :chiplead
+  with_fx :reverb, room: 1 do
+    12.times do
+      play chord(:b3, :m7), attack: 0.3, release: 3.5
+      sleep 4
+      play chord(:d4, :m7), attack: 0.3, release: 3.5
+      sleep 4
+    end
+    4.times do
+      play chord(:c4, :maj), attack: 0.2, release: 1
+      sleep 1
+      play chord(:c4, :maj), attack: 0.2, release: 1
+      sleep 1
+      play chord(:g3, :maj), attack: 0.1, release: 0.40
+      sleep 0.50
+      play chord(:g3, :maj), attack: 0.2, release: 1
+      sleep 1
+      play chord(:a3, :maj), attack: 0.2, release: 3
+      sleep 4.50
+    end
+    
+    
+  end
+end
+
+in_thread do
+  use_synth :blade
+  with_fx :slicer, phase: 0.25 do
+    at 16 do
+      
+      play chord(:b3, :m7), attack: 0.3, release: 3.5
+      sleep 4
+      play chord(:d4, :m7), attack: 0.3, release: 3.5
+      sleep 4
+    end
+    #end
+  end
+end
+
+in_thread do
+  at 16 do
+    use_synth :fm
+    10.times do
+      play_pattern_timed [:d2, :d2, :c2, :d2, :d2, :e2, :f2, :f2, :e2, :f2, :f2, :e2], [0.50, 1, 0.25, 1.75, 0.25, 0.25, 0.50, 1, 0.25, 1.75, 0.25, 0.25], release: 0.2, sustain: 0.2
+    end
+    2.times do
+      play_pattern_timed [:c2, :c2, :g2, :g2, :fs2, :c2, :c2, :g2, :g2, :a2,], [1, 1, 0.50, 1, 4.50, 1, 1, 0.50, 1, 4.50], release: 0.2, sustain: 0.2
+    end
+  end
+end
+
+
+
+in_thread do
+  at 16 do
+    set :bass_rhythm,ring(15, 0, 13, 0,  0, 0, 0, 0)
+    set :snare_rhythm,ring(0, 0, 0, 0,  16, 0, 0, 0)
+    set :hat_rhythm,ring(4, 5, 3, 4,  3, 2, 4, 5) # DRUM RHYTHMS
+    160.times do
+      sample :bd_haus, amp: 0.1*get(:bass_rhythm).tick
+      sample :sn_zome, amp: 0.1*get(:snare_rhythm).look
+      sample :drum_cymbal_closed,amp: 0.1*get(:hat_rhythm).look
+      sleep 0.25
+    end
+    at 8 do
+      128.times do
+        sample :bd_tek, amp: 0.1*get(:bass_rhythm).tick
+        sample :sn_zome, amp: 0.1*get(:snare_rhythm).look
+        sample :drum_cymbal_closed,amp: 0.1*get(:hat_rhythm).look
+        sleep 0.25
+      end
+      at 8 do
+        64.times do
+          sample :bd_tek, amp: 0.1*get(:bass_rhythm).tick
+          sample :sn_zome, amp: 0.1*get(:snare_rhythm).look
+          sample :drum_cymbal_closed,amp: 0.1*get(:hat_rhythm).look
+          sleep 0.25
+        end
+      end
+    end
+  end
+end
+
+
+in_thread do
+  at 64 do
+    with_fx :reverb, room: 0.7 do
+      4.times do
+        use_synth :chipbass
+        play_pattern_timed [:a4, :a4, :a4, :a4, :a4, :a4, :b4, :c5, :c5, :b4, :c5, :c5, :b4], [0.50, 0.50, 0.50, 0.25, 1.75, 0.25, 0.25, 0.50, 1, 0.25, 1.75, 0.25, 0.25], release: 0.1, sustain: 0.2, amp: 0.3
+      end
+    end
+  end
+end
+
+in_thread do
+  at 128 do
+    with_fx :slicer, phase: 0.25 do
+      use_synth :blade
+      with_fx :reverb, room: 1 do
+        4.times do
+          play chord(:a3, :maj9), attack: 0.3, release: 3.5
+          sleep 4
+          play chord(:c3, :major), attack: 0.3, release: 3.5
+          sleep 4
+        end
+      end
+    end
+    
+  end
+end
+
+
+
+
+
+
+
