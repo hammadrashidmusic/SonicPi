@@ -1,0 +1,96 @@
+#Coded by Hammad Rashid
+in_thread do
+  #random music generation
+  
+  use_synth :sine
+  with_fx :reverb, room: 1 do
+    density 4 do
+      #2.times do
+      
+      play_pattern_timed scale(:e5, :phrygian).pick, 0.25, pan: 0.50, amp: 0.3
+      sleep 0.50
+      play_pattern_timed scale(:d5, :dorian).pick, 0.25, pan: -0.50, amp: 0.3
+      sleep 0.50
+      play_pattern_timed scale(:g5, :major_pentatonic).pick, 0.25, pan: rrand(0.35, 0.75, -0.25, -1), amp: 0.3
+      sleep 0.75
+      play_pattern_timed scale(:e5, :phrygian).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+      sleep 0.75
+      play_pattern_timed scale(:e5, :phrygian).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+      sleep 0.25
+      play_pattern_timed scale(:g4, :major_pentatonic).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+      sleep 0.25
+      play_pattern_timed scale(:c4, :ionian).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+      sleep 1.50
+      play_pattern_timed scale(:d5, :dorian).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+      sleep 0.50
+      #end
+    end
+    
+    density 8 do
+      #2.times do
+      
+      play_pattern_timed scale(:e5, :phrygian).pick, 0.25, pan: 0.50, amp: 0.3
+      sleep 0.50
+      play_pattern_timed scale(:d5, :dorian).pick, 0.25, pan: -0.50, amp: 0.3
+      sleep 0.50
+      play_pattern_timed scale(:g5, :major_pentatonic).pick, 0.25, pan: rrand(0.35, 0.75, -0.25, -1), amp: 0.3
+      sleep 0.75
+      play_pattern_timed scale(:e5, :phrygian).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+      sleep 0.75
+      play_pattern_timed scale(:e5, :phrygian).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+      sleep 0.25
+      play_pattern_timed scale(:g4, :major_pentatonic).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+      sleep 0.25
+      play_pattern_timed scale(:c4, :ionian).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+      sleep 1.50
+      play_pattern_timed scale(:d5, :dorian).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+      sleep 0.50
+      #end
+    end
+    
+    density 16 do
+      2.times do
+        
+        play_pattern_timed scale(:e5, :phrygian).pick, 0.25, pan: 0.50, amp: 0.3
+        sleep 0.50
+        play_pattern_timed scale(:d5, :dorian).pick, 0.25, pan: -0.50, amp: 0.3
+        sleep 0.50
+        play_pattern_timed scale(:g5, :major_pentatonic).pick, 0.25, pan: rrand(0.35, 0.75, -0.25, -1), amp: 0.3
+        sleep 0.75
+        play_pattern_timed scale(:e5, :phrygian).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+        sleep 0.75
+        play_pattern_timed scale(:e5, :phrygian).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+        sleep 0.25
+        play_pattern_timed scale(:g4, :major_pentatonic).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+        sleep 0.25
+        play_pattern_timed scale(:c4, :ionian).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+        sleep 1.50
+        play_pattern_timed scale(:d5, :dorian).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+        sleep 0.50
+      end
+    end
+    
+    density 32 do
+      #2.times do
+      
+      play_pattern_timed scale(:e5, :phrygian).pick, 0.25, pan: 0.50, amp: 0.3
+      sleep 0.50
+      play_pattern_timed scale(:d5, :dorian).pick, 0.25, pan: -0.50, amp: 0.3
+      sleep 0.50
+      play_pattern_timed scale(:g5, :major_pentatonic).pick, 0.25, pan: rrand(0.35, 0.75, -0.25, -1), amp: 0.3
+      sleep 0.75
+      play_pattern_timed scale(:e5, :phrygian).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+      sleep 0.75
+      play_pattern_timed scale(:e5, :phrygian).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+      sleep 0.25
+      play_pattern_timed scale(:g4, :major_pentatonic).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+      sleep 0.25
+      play_pattern_timed scale(:c4, :ionian).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+      sleep 1.50
+      play_pattern_timed scale(:d5, :dorian).pick, 0.25, pan: rrand(0.50, 0.75, -0.25, -1), amp: 0.3
+      sleep 0.50
+      #end
+    end
+  end
+end
+
