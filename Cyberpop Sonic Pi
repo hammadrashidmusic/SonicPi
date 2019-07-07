@@ -1,0 +1,112 @@
+#Written/coded by Hammad Rashid 
+
+use_bpm 120
+
+  
+  #cyberpop
+  in_thread do
+   
+  use_synth :hollow
+  8.times do
+    play chord(:f3, :sus4), sustain: 3.50
+    sleep 4
+    play chord(:bb3, :maj11), sustain: 3.50
+    sleep 4
+  end
+  at 48 do
+    4.times do
+      play chord(:f3, :sus4), sustain: 3.50
+      sleep 4
+      play chord(:bb3, :maj11), sustain: 3.50
+      sleep 4
+    end
+  end
+end
+
+in_thread do
+  at 32 do
+    use_synth :fm
+    8.times do
+      play_pattern_timed [:f2, :f2, :f2, :f2, :gs2, :c3], [0.75, 0.75, 1, 1, 0.25, 0.25], release: 0.2
+      play_pattern_timed [:gs2, :gs2, :gs2, :gs2, :c3, :gs2, :c3, :gs2], [0.75, 0.75, 0.75, 0.50, 0.25, 0.50, 0.25, 0.25], release: 0.2
+    end
+    4.times do
+      use_synth :fm
+      play_pattern_timed [:f2, :f2, :gs2, :c3, :f2, :gs2, :c3], [0.50, 0.50, 0.75, 0.75, 0.75, 0.25, 0.25], release: 0.2
+      play_pattern_timed [:gs2, :as2, :as2, :as2, :as2, :c3, :gs2, :c3, :gs2], [0.50, 0.50, 0.75, 0.50, 0.50, 0.25, 0.50, 0.25, 0.25], release: 0.2
+    end
+    2.times do
+      use_synth :fm
+      play_pattern_timed [:f2, :f2, :f2, :f2, :gs2, :c3], [0.75, 0.75, 1, 1, 0.25, 0.25], release: 0.2
+      play_pattern_timed [:gs2, :gs2, :gs2, :gs2, :c3, :gs2, :c3, :gs2], [0.75, 0.75, 0.75, 0.50, 0.25, 0.50, 0.25, 0.25], release: 0.2
+    end
+  end
+end
+
+
+in_thread do
+  at 32 do
+    use_synth :prophet
+    4.times do
+      play_pattern_timed [:f2, :eb2, :f2, :eb2, :f2, :d2, :eb2, :d2], [0.50, 0.25, 0.50, 0.25, 0.50, 1, 0.50, 0.50], release: 0.2, amp: 0.2
+      play_pattern_timed [:c2, :c2, :c2, :c2, :c2], [0.75, 0.75, 0.75, 0.75, 1], release: 0.25, amp: 0.2
+    end
+  end
+end
+
+in_thread do
+  use_synth :tb303
+  with_fx :reverb, room: 1 do
+    with_fx :slicer, phase: 0.25 do
+      at 64 do
+        4.times do
+          play_pattern_timed [:bb3, :d4, :eb4, :bb3, :f4, :bb3, :d4, :eb4], [0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50], release: 0.20, amp: 0.1, pan: -0.4
+          play_pattern_timed [:ab3, :bb3, :d4, :eb4, :bb3, :f4, :eb4, :d4], [0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50], release: 0.2, amp: 0.1, pan: -0.2
+        end
+      end
+    end
+  end
+end
+
+
+in_thread do
+  use_synth :piano
+  with_fx :reverb, room: 1 do
+    with_fx :slicer, phase: 0.25 do
+      at 96 do
+        4.times do
+          #density 8 do
+          play_pattern_timed [:bb3, :bb3, :g3, :g3, :gs3, :gs3, :f3, :f3, :f3, :f3], [1, 1, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75], release: 0.1, amp: 0.5
+        end
+      end
+    end
+  end
+end
+
+
+in_thread do
+  at 32 do
+    48.times do
+      sample :bd_tek
+      sleep 1
+    end
+  end
+end
+
+
+in_thread do
+  at 96 do
+    set :bass_rhythm,ring(9, 0, 0, 0,  9, 0, 0, 0)
+    set :snare_rhythm,ring(0, 0, 0, 0,  9, 0, 0, 0)
+    set :hat_rhythm,ring(0, 5, 0, 5,  3, 2, 0, 5) # DRUM RHYTHMS
+    128.times do
+      sample :bd_tek, amp: 0.1*get(:bass_rhythm).tick
+      sample :sn_zome, amp: 0.1*get(:snare_rhythm).look
+      sample :drum_cymbal_closed,amp: 0.1*get(:hat_rhythm).look
+      sleep 0.25
+    end
+  end
+end
+
+
+#Produced and coded by Hammad Rashid in Sonic PI
